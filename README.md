@@ -1,5 +1,5 @@
 # T1
-#Как начать
+# Как начать
 
 git clone https://github.com/Praepost/t1.git
 
