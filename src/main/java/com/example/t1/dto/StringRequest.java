@@ -9,6 +9,6 @@ import lombok.*;
 @Setter
 public class StringRequest {
     @ApiModelProperty(name = "String", value = "total line", notes = "final result")
-    @Pattern(regexp = "^((25[0-5]|(2[0-4]|1[0-9]|[1-9]|)[0-9])(\\.(?!$)|$)){4}$")
+    @Pattern(regexp = "[a-zA-Z0-9]")
     private String InputString;
 }
