@@ -8,7 +8,7 @@ import lombok.*;
 @Getter
 @Setter
 public class StringRequest {
-    @ApiModelProperty(name = "String", value = "итоговая строка", notes = "итоговый результат")
+    @ApiModelProperty(name = "String", value = "total line", notes = "final result")
     @NonNull
-    private String outputString;
+    private String InputString;
 }

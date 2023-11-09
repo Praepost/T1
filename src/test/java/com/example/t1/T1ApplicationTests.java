@@ -3,7 +3,6 @@ package com.example.t1;
 import com.example.t1.dto.StringRequest;
 import com.example.t1.service.MainService;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.RequiredArgsConstructor;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -36,22 +35,22 @@ class T1ApplicationTests {
 	void FirstTest() throws Exception {
 		StringRequest  stringRequest= new StringRequest("aaaaabcccc");
 		mockMvc.perform(post("/calculate")
-				.content(objectMapper.writeValueAsString(stringRequest.getOutputString()))
+				.content(objectMapper.writeValueAsString(stringRequest.getInputString()))
 				.contentType(MediaType.APPLICATION_JSON)
 		);
 
-		assertEquals(mainService.calculate(stringRequest.getOutputString()), "\"a\": 5, \"c\": 4, \"b\": 1");
+		assertEquals(mainService.calculate(stringRequest.getInputString()), "a: 5, c: 4, b: 1");
 
 	}
 	@Test
 	void SecondTest() throws Exception {
 		StringRequest  stringRequest= new StringRequest("aaafaffffffffffbcffcc");
 		mockMvc.perform(post("/calculate")
-				.content(objectMapper.writeValueAsString(stringRequest.getOutputString()))
+				.content(objectMapper.writeValueAsString(stringRequest.getInputString()))
 				.contentType(MediaType.APPLICATION_JSON)
 		);
 
-		assertEquals(mainService.calculate(stringRequest.getOutputString()), "\"f\": 13, \"a\": 4, \"c\": 3, \"b\": 1");
+		assertEquals(mainService.calculate(stringRequest.getInputString()), "f: 13, a: 4, c: 3, b: 1");
 
 	}
 
@@ -59,11 +58,11 @@ class T1ApplicationTests {
 	void ThirdTest() throws Exception {
 		StringRequest  stringRequest= new StringRequest("adfaafaffljffffjgkljffffbjhgjfbcffcc");
 		mockMvc.perform(post("/calculate")
-				.content(objectMapper.writeValueAsString(stringRequest.getOutputString()))
+				.content(objectMapper.writeValueAsString(stringRequest.getInputString()))
 				.contentType(MediaType.APPLICATION_JSON)
 		);
 
-		assertEquals(mainService.calculate(stringRequest.getOutputString()), "\"f\": 15, \"j\": 5, \"a\": 4, \"c\": 3, \"b\": 2, \"g\": 2, \"l\": 2, \"d\": 1, \"h\": 1, \"k\": 1");
+		assertEquals(mainService.calculate(stringRequest.getInputString()), "f: 15, j: 5, a: 4, c: 3, b: 2, g: 2, l: 2, d: 1, h: 1, k: 1");
 
 	}
 
@@ -71,11 +70,11 @@ class T1ApplicationTests {
 	void FourthTest() throws Exception {
 		StringRequest  stringRequest= new StringRequest("dsfrttgdfsdfgggdg");
 		mockMvc.perform(post("/calculate")
-				.content(objectMapper.writeValueAsString(stringRequest.getOutputString()))
+				.content(objectMapper.writeValueAsString(stringRequest.getInputString()))
 				.contentType(MediaType.APPLICATION_JSON)
 		);
 
-		assertEquals(mainService.calculate(stringRequest.getOutputString()), "\"g\": 5, \"d\": 4, \"f\": 3, \"s\": 2, \"t\": 2, \"r\": 1");
+		assertEquals(mainService.calculate(stringRequest.getInputString()), "g: 5, d: 4, f: 3, s: 2, t: 2, r: 1");
 
 	}
 
@@ -83,11 +82,11 @@ class T1ApplicationTests {
 	void FifthTest() throws Exception {
 		StringRequest  stringRequest= new StringRequest("fddgghjkkyuykyukuyjg");
 		mockMvc.perform(post("/calculate")
-				.content(objectMapper.writeValueAsString(stringRequest.getOutputString()))
+				.content(objectMapper.writeValueAsString(stringRequest.getInputString()))
 				.contentType(MediaType.APPLICATION_JSON)
 		);
 
-		assertEquals(mainService.calculate(stringRequest.getOutputString()), "\"y\": 4, \"k\": 4, \"u\": 3, \"g\": 3, \"d\": 2, \"j\": 2, \"f\": 1, \"h\": 1");
+		assertEquals(mainService.calculate(stringRequest.getInputString()), "y: 4, k: 4, u: 3, g: 3, d: 2, j: 2, f: 1, h: 1");
 
 	}
 

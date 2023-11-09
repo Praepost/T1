@@ -4,6 +4,7 @@ import com.example.t1.dto.StringRequest;
 import com.example.t1.dto.StringResponse;
 import com.example.t1.service.MainService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -12,8 +13,8 @@ public class MainController implements IMainController {
     private final MainService mainService;
 
     @Override
-    public StringResponse calculate(StringRequest stringRequest) {
-        return new StringResponse(mainService.calculate(stringRequest.getOutputString()));
+    public StringResponse calculate(@RequestBody StringRequest stringRequest) {
+        return new StringResponse(mainService.calculate(stringRequest.getInputString()));
     }
 }
 

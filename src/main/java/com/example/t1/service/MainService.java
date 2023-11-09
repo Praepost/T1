@@ -1,8 +1,5 @@
 package com.example.t1.service;
 
-import com.example.t1.dto.StringResponse;
-import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.io.ByteArrayInputStream;
@@ -41,7 +38,7 @@ public class MainService {
         }
 
         output = input.entrySet().stream()
-                .sorted(Map.Entry.<Character, Integer>comparingByValue().reversed()).map(entry -> "\"" + entry.getKey() + "\"" + ": " + entry.getValue())
+                .sorted(Map.Entry.<Character, Integer>comparingByValue().reversed()).map(entry -> (char) entry.getKey() + ": " + entry.getValue())
                 .collect(Collectors.joining(", "));
 
         try {
